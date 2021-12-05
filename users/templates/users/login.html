@@ -1,0 +1,34 @@
+
+{% extends 'blog/base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+
+<!-- --- Admin Register form (super user) -->
+
+
+
+    <div class="content-section">
+        <form method="POST">
+            {% csrf_token %}
+
+            <fieldset class="form-group">
+                <legend class="border-bottom mb4-a"> Log In </legend>  
+                {{form|crispy}}
+            </fieldset>
+
+            <div class="from-group">
+                <button class="btn btn-outline-info" type="submit">Login </button>
+            </div>
+
+        </form>
+
+        <div class='border-top pt-3'>
+            <small class="text-muted">
+                Alredy Have an Account <a class="ml-2" href="admin_crispy_form"> Sign up Now</a>
+            </small>
+        </div>
+
+    </div>
+    
+    {% endblock %}

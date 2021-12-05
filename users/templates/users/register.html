@@ -1,0 +1,98 @@
+
+{% extends 'blog/base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+
+<!-- --- Admin Register form (super user) -->
+
+
+    {% if type == 'form' %}
+
+    <div class="content-section">
+        <form method="POST">
+            {% csrf_token %}
+
+            <fieldset class="form-group">
+                <legend class="border-bottom mb4-a">Direct form</legend>  
+                {{form.as_p}}
+            </fieldset>
+
+            <div class="from-group">
+                <button class="btn btn-outline-info" type="submit">Sign Up </button>
+            </div>
+
+        </form>
+
+        <div class='border-top pt-3'>
+            <small class="text-muted">
+                Alredy Have an Account <a class="ml-2" href=" "></a>
+            </small>
+        </div>
+
+    </div>
+    
+    <!-- end admin register form -->
+    {% endif %}
+
+    <!-- admin class form -->
+
+    {% if type == 'class' %}
+
+
+    <div class="content-section">
+        <form method="POST">
+            {% csrf_token %}
+
+            <fieldset class="form-group">
+                <legend class="border-bottom mb4-a"> Class Form </legend>  
+                {{form.as_p}}
+            </fieldset>
+
+            <div class="from-group">
+                <button class="btn btn-outline-info" type="submit">Sign Up </button>
+            </div>
+
+        </form>
+
+        <div class='border-top pt-3'>
+            <small class="text-muted">
+                Alredy Have an Account <a class="ml-2" href=" "></a>
+            </small>
+        </div>
+
+    </div>
+    <!-- end admin register form -->
+    {% endif %}
+
+
+    <!-- --- Admin class with Crispy  form  -->
+
+    {% if type == 'crispy' %}
+
+    <div class="content-section">
+        <form method="POST">
+            {% csrf_token %}
+
+            <fieldset class="form-group">
+                <legend class="border-bottom mb4-a"> crispy form </legend>  
+                {{form|crispy}}
+            </fieldset>
+
+            <div class="from-group">
+                <button class="btn btn-outline-info" type="submit">Sign Up </button>
+            </div>
+
+        </form>
+
+        <div class='border-top pt-3'>
+            <small class="text-muted">
+                Alredy Have an Account <a class="ml-2" href=" "></a>
+            </small>
+        </div>
+
+    </div>
+    <!-- end admin register form -->
+    {% endif %}
+
+    {% endblock %}
