@@ -15,7 +15,6 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,include
-from my_project.settings import MEDIA_URL
 from users import views as u_views
 from django.contrib.auth import views as auth_view
 
@@ -26,7 +25,7 @@ from django.conf import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('blog/',include('blog.urls')),
+    path('',include('blog.urls')),
 
     path('admin_form/',u_views.admin_form,name='admin_form'),
     path('admin_class_form/',u_views.admin_form_class,name='admin_class_form'),

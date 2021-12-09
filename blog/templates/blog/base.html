@@ -48,24 +48,34 @@
     <main role="main" class="container">
       <div class="row">
         <div class="col-md-8">
+          {% if messages %}
+
+            {% for i in messages %}
+              <div class="alert alert-{{ i.tags }}">
+                {{ i }}
+              </div>
+            {% endfor %}
+
+          {% endif %}
           
             {% block content %}  {% endblock %}
-                 
-          <div class="alert" >
-           
-          </div>
           
         </div>
 
         <div class="col-md-4">
           <div class="content-section">
-            <h3>Our Sidebar</h3>
-            <p class='text-muted'>You can put any information here you'd like.
+            <h3>information</h3>
+            <p class='text-muted'>
               <ul class="list-group">
-                <li class="list-group-item list-group-item-light">Latest Posts</li>
-                <li class="list-group-item list-group-item-light">Announcements</li>
-                <li class="list-group-item list-group-item-light">Calendars</li>
-                <li class="list-group-item list-group-item-light">etc</li>
+                {% if not user.is_authenticated %}
+                  <li class="list-group-item list-group-item-light"> Total User {{t_user}} & Total Post {{t_post}}</li>
+                  {% for i in  total %}
+                  <li class="list-group-item list-group-item-light">{{total}}  </li>
+                  {% endfor %}
+                {% else %}
+                  <li class="list-group-item list-group-item-light"> Total My Post is-> {{ mypost }}</li>
+                {% endif %}
+                
               </ul>
             </p>
           </div>

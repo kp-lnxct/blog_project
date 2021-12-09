@@ -11,7 +11,7 @@
     <div class="content-section">
         <form method="POST">
             {% csrf_token %}
-
+            {{ messages }}
             <fieldset class="form-group">
                 <legend class="border-bottom mb4-a"> Log In </legend>  
                 {{form|crispy}}
