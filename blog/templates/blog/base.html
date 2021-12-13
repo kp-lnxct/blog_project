@@ -11,6 +11,8 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="{% static 'main.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
     <title>  kips </title>
   </head>
   <body>
@@ -69,9 +71,11 @@
               <ul class="list-group">
                 {% if not user.is_authenticated %}
                   <li class="list-group-item list-group-item-light"> Total User {{t_user}} & Total Post {{t_post}}</li>
-                  {% for i in  total %}
-                  <li class="list-group-item list-group-item-light">{{total}}  </li>
-                  {% endfor %}
+                  {% for k,v in  t_key.items  %}  
+                    
+                      <li class="list-group-item list-group-item-light"> <b> {{k}} {{v}}  </b>  </li>
+                    
+                  {% endfor %} 
                 {% else %}
                   <li class="list-group-item list-group-item-light"> Total My Post is-> {{ mypost }}</li>
                 {% endif %}

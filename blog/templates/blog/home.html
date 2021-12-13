@@ -1,10 +1,9 @@
 
 {% extends 'blog/base.html' %}
 
-
 {% block content %}
 
-{% for i in post %}
+{% for i,like in post_data %}
   <article class="media content-section">
     
     <img src="{{ i.author.profile.image.url }}"  alt="" class="rounded-circle article-img">
@@ -15,6 +14,8 @@
       </div>
       <h2><a class="article-title" href="{% url 'post_detail' i.id %}">{{ i.title }}</a></h2>
       <p class="article-content">{{ i.content }}</p>
+      <a href="{% url 'post_like' pk=i.id %}" class="fa fa-thumbs-up"> {{ like }} </a>
+  
     </div>
   </article>
 {% endfor %}
